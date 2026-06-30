@@ -1,0 +1,261 @@
+/* 🌸 Cute Page Background 🌸 */
+body {
+  background: linear-gradient(135deg, #ffdde8 0%, #f3d5fb 50%, #e8dbfc 100%);
+  font-family: 'Fredoka', Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  color: #5d2e46;
+}
+
+/* 🧁 White Cartoon Card 🧁 */
+.card {
+  background-color: white;
+  border: 4px solid #ffccd5;
+  border-radius: 35px;
+  padding: 30px;
+  text-align: center;
+  width: 340px;
+  box-shadow: 0 15px 30px rgba(220, 150, 180, 0.3);
+  transition: transform 0.3s ease;
+}
+
+h1 {
+  color: #ff5d8f;
+  margin: 0 0 20px 0;
+  font-size: 32px;
+  text-shadow: 2px 2px 0px #ffe5ec;
+  letter-spacing: 1px;
+}
+
+/* 🎨 Cupcake Display Area 🎨 */
+.cupcake-box {
+  background-color: #fff0f3;
+  border: 3px dashed #ffb3c1;
+  border-radius: 25px;
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🧁 Cupcake Elements 🧁 */
+.cupcake {
+  position: relative;
+  width: 160px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 🍒 The Cherry Stem */
+.cherry-stem {
+  position: absolute;
+  top: -15px;
+  left: 85px;
+  width: 15px;
+  height: 25px;
+  border-left: 3px solid #70e000;
+  border-top-left-radius: 50%;
+  z-index: 4;
+}
+
+/* 🍒 The Cherry */
+.cherry {
+  position: absolute;
+  top: 5px;
+  left: 62px;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #ff4d6d 0%, #c9184a 100%);
+  border: 2px solid #a4133c;
+  border-radius: 50%;
+  z-index: 3;
+  box-shadow: inset -3px -3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Shiny white dot on the cherry */
+.cherry::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 6px;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+/* 🍦 Fluffy Frosting 🍦 */
+.frosting {
+  position: absolute;
+  bottom: 60px;
+  width: 140px;
+  height: 95px;
+  background-color: #ffb7d5;
+  border: 3px solid #ff758f;
+  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+  z-index: 2;
+  box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.05), 
+              0 5px 10px rgba(255, 117, 143, 0.2);
+  transition: background-color 0.4s ease;
+}
+
+/* Extra frosting layer for 3D look */
+.frosting::before {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  width: 114px;
+  height: 45px;
+  background: inherit;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+/* 🌟 Sprinkles 🌟 */
+.sprinkles {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 104px;
+  height: 60px;
+}
+
+.sprinkle {
+  position: absolute;
+  width: 10px;
+  height: 5px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Heart sprinkles */
+.sprinkle.heart {
+  width: 12px;
+  height: 12px;
+  background-color: #ff4d6d;
+  clip-path: polygon(50% 15%, 80% 0%, 100% 30%, 50% 90%, 0% 30%, 20% 0%);
+  border: none;
+}
+
+/* Star sprinkles */
+.sprinkle.star {
+  width: 12px;
+  height: 12px;
+  background-color: #ffd166;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  border: none;
+}
+
+/* 🍬 Paper Cup (Wrapper) 🍬 */
+.wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 120px;
+  height: 75px;
+  background-color: #a2d2ff;
+  border: 3px solid #7bb3e0;
+  border-top: none;
+  /* Bends the corners to make it a cup shape */
+  border-radius: 0 0 25px 25px;
+  clip-path: polygon(10% 0%, 90% 0%, 82% 100%, 18% 100%);
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 1;
+  transition: background-color 0.4s ease;
+}
+
+/* Paper cup stripes */
+.stripe {
+  width: 4px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+}
+
+/* ✨ Bubbly Mix Button ✨ */
+button {
+  background: linear-gradient(135deg, #ff758f 0%, #ff4d6d 100%);
+  color: white;
+  border: 3px solid #ffccd5;
+  border-radius: 50px;
+  padding: 14px 28px;
+  font-family: 'Fredoka', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 0px #c9184a, 0 10px 20px rgba(255, 77, 109, 0.3);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  outline: none;
+  width: 100%;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #ff8fa3 0%, #ff5d8f 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0px #c9184a, 0 12px 25px rgba(255, 77, 109, 0.4);
+}
+
+button:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0px #c9184a, 0 4px 10px rgba(255, 77, 109, 0.2);
+}
+
+/* 📜 Recipe Box 📜 */
+.recipe-box {
+  background-color: #ffe5ec;
+  border: 2px solid #ffccd5;
+  border-radius: 20px;
+  margin-top: 25px;
+  padding: 15px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.recipe-box p {
+  margin: 8px 0;
+  font-weight: 600;
+  color: #5d2e46;
+}
+
+.recipe-box span {
+  font-weight: 700;
+  color: #ff4d6d;
+}
+
+/* 🎭 Hidden utility */
+.hidden {
+  display: none !important;
+}
+
+/* 💫 Cartoon Bounce Animation 💫 */
+.bounce {
+  animation: cupcake-bounce 0.6s ease-out;
+}
+
+@keyframes cupcake-bounce {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(0.8, 1.2) translateY(-25px);
+  }
+  50% {
+    transform: scale(1.1, 0.85) translateY(0);
+  }
+  70% {
+    transform: scale(0.95, 1.05) translateY(-5px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}

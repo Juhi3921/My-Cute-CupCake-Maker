@@ -47,7 +47,6 @@ function playPopSound() {
     osc.connect(gain);
     gain.connect(ctx.destination);
     
-    // Make the sound slide up in pitch (like a bubble!)
     osc.frequency.setValueAtTime(150, ctx.currentTime);
     osc.frequency.exponentialRampToValueAtTime(600, ctx.currentTime + 0.15);
     
@@ -137,20 +136,23 @@ function makeSprinkles(type) {
   }
 }
 
-function generateCupcake() {
+function generateCupcake(shouldPlayEffects = true) {
   const frostingChoice = pickRandom(frostingChoices);
   const sprinkleChoice = pickRandom(sprinkleChoices);
   const wrapperChoice = pickRandom(wrapperChoices);
   const cherryChoice = pickRandom(cherryChoices);
 
+  // 📝 A. Update the text list
   frostingText.textContent = frostingChoice;
   sprinklesText.textContent = sprinkleChoice;
   wrapperText.textContent = wrapperChoice;
   cherryText.textContent = cherryChoice;
 
+  // 🎨 B. Update the cupcake colors
   frosting.style.backgroundColor = frostingColors[frostingChoice];
   wrapper.style.backgroundColor = wrapperColors[wrapperChoice];
 
+  // 🍒 C. Show or hide the cherry and its stem
   if (cherryChoice === "Yes!") {
     cherry.classList.remove("hidden");
     cherryStem.classList.remove("hidden");
@@ -159,19 +161,23 @@ function generateCupcake() {
     cherryStem.classList.add("hidden");
   }
 
+  // 🌟 D. Draw the sprinkles
   makeSprinkles(sprinkleChoice);
 
+  // 💫 E. Add bounce animation!
   cupcake.classList.remove("bounce");
   void cupcake.offsetWidth; // This is a magic trick to restart the animation
   cupcake.classList.add("bounce");
 
-  // 🔊 F. Play effects
-  playPopSound();
-  burstConfetti();
+  // 🔊 F. Play effects only if user clicked
+  if (shouldPlayEffects) {
+    playPopSound();
+    burstConfetti();
+  }
 }
 
 // 👆 9. Run the generator when the button is clicked! 👆
-mixButton.addEventListener("click", generateCupcake);
+mixButton.addEventListener("click", () => generateCupcake(true));
 
-// 🧁 10. Run once on page load to show a cupcake immediately! 🧁
-generateCupcake();
+// 🧁 10. Run once on page load to show a cupcake immediately! (no sound yet) 🧁
+generateCupcake(false);

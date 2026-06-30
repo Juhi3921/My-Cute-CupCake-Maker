@@ -50,14 +50,12 @@ function playPopSound() {
     osc.frequency.setValueAtTime(150, ctx.currentTime);
     osc.frequency.exponentialRampToValueAtTime(600, ctx.currentTime + 0.15);
     
-    // Make the volume fade out quickly
     gain.gain.setValueAtTime(0.15, ctx.currentTime);
     gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
     
     osc.start();
     osc.stop(ctx.currentTime + 0.15);
   } catch (err) {
-    // Sound might be blocked by browser before first click
   }
 }
 
@@ -104,12 +102,10 @@ function makeSprinkles(type) {
 
   const colors = ["#ff4d6d", "#ffb7d5", "#ffd166", "#06d6a0", "#118ab2", "#c8b6ff"];
 
-  // Add 10 random sprinkles
   for (let i = 0; i < 10; i++) {
     const sprinkle = document.createElement("div");
     sprinkle.className = "sprinkle";
 
-    // Set sprinkle position inside the frosting
     sprinkle.style.top = Math.floor(Math.random() * 45) + 20 + "px";
     sprinkle.style.left = Math.floor(Math.random() * 90) + 10 + "px";
     sprinkle.style.transform = "rotate(" + Math.floor(Math.random() * 180) + "deg)";
@@ -142,13 +138,11 @@ function generateCupcake(shouldPlayEffects = true) {
   const wrapperChoice = pickRandom(wrapperChoices);
   const cherryChoice = pickRandom(cherryChoices);
 
-  // 📝 A. Update the text list
   frostingText.textContent = frostingChoice;
   sprinklesText.textContent = sprinkleChoice;
   wrapperText.textContent = wrapperChoice;
   cherryText.textContent = cherryChoice;
 
-  // 🎨 B. Update the cupcake colors
   frosting.style.backgroundColor = frostingColors[frostingChoice];
   wrapper.style.backgroundColor = wrapperColors[wrapperChoice];
 
@@ -161,23 +155,18 @@ function generateCupcake(shouldPlayEffects = true) {
     cherryStem.classList.add("hidden");
   }
 
-  // 🌟 D. Draw the sprinkles
   makeSprinkles(sprinkleChoice);
 
-  // 💫 E. Add bounce animation!
   cupcake.classList.remove("bounce");
   void cupcake.offsetWidth; // This is a magic trick to restart the animation
   cupcake.classList.add("bounce");
 
-  // 🔊 F. Play effects only if user clicked
   if (shouldPlayEffects) {
     playPopSound();
     burstConfetti();
   }
 }
 
-// 👆 9. Run the generator when the button is clicked! 👆
 mixButton.addEventListener("click", () => generateCupcake(true));
 
-// 🧁 10. Run once on page load to show a cupcake immediately! (no sound yet) 🧁
 generateCupcake(false);
